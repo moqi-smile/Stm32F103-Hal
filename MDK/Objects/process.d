@@ -1,0 +1,11 @@
+.\objects\process.o: ..\Middlewares\Contiki\core\sys\process.c
+.\objects\process.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/process.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/pt.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/lc.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/lc-switch.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/cc.h
+.\objects\process.o: ..\Middlewares\Contiki\cpu\contiki-conf.h
+.\objects\process.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/cc-gcc.h
+.\objects\process.o: ..\Middlewares\Contiki\core\sys/arg.h

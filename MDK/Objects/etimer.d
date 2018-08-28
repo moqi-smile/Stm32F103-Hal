@@ -1,0 +1,12 @@
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys\etimer.c
+.\objects\etimer.o: ..\Middlewares\Contiki\cpu\contiki-conf.h
+.\objects\etimer.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/etimer.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/timer.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/clock.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/process.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/pt.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/lc.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/lc-switch.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/cc.h
+.\objects\etimer.o: ..\Middlewares\Contiki\core\sys/cc-gcc.h
