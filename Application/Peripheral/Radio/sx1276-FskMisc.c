@@ -30,6 +30,8 @@
 
 #include "platform.h"
 
+#if defined( USE_SX1276_RADIO )
+
 #include "sx1276-Hal.h"
 #include "sx1276.h"
 
@@ -451,8 +453,8 @@ void SX1276FskSetRssiOffset( int8_t offset )
 
 int8_t SX1276FskGetRssiOffset( void )
 {
-    int8_t offset;
-		SX1276Read( REG_RSSICONFIG, &SX1276->RegRssiConfig );
+	int8_t offset = 0;
+    SX1276Read( REG_RSSICONFIG, &SX1276->RegRssiConfig );
     offset = SX1276->RegRssiConfig >> 3;
     if( ( offset & 0x10 ) == 0x10 )
     {
@@ -516,3 +518,5 @@ int8_t SX1276FskGetTemp( int8_t compensationFactor )
 {
     return SX1276FskGetRawTemp( ) + compensationFactor;
 }
+
+#endif // USE_SX1276_RADIO

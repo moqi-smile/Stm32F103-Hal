@@ -6,7 +6,8 @@
 #endif
 
 #define LED1  PC13
-#define LED2  PA1
+#define LED2  PA8
+#define LED3  PB9
 
 #define UART1_Tx  PA9
 #define UART1_Rx  PA10

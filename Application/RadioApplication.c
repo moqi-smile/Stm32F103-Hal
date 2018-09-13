@@ -8,89 +8,98 @@
 #include "sx1276.h"
 #include "sx1276-Hal.h"
 
-#define BUFFER_SIZE			255
-// Define the payload size here
-#define ControlNode         0x01
-#define SetGroupID          0x05
-
-
-static uint16_t BufferSize = BUFFER_SIZE;
-// RF buffer size
-static uint8_t  Buffer[BUFFER_SIZE];
-// RF buffer
-
-static uint16_t RadioData_Index = BUFFER_SIZE;
-// RF buffer size
-static uint8_t  RadioData_Buf[BUFFER_SIZE];
-
-uint32_t NetADDR = 0;
-
 PROCESS(RadioRx_process, "RadioRx");
 PROCESS(RadioTx_process, "RadioTx");
 
-static process_event_t Radio_RecvMsg = 0;
+#include "radio.h"
 
-typedef struct 
-{
-	uint8_t len;
-	uint8_t ID[5];
-	uint8_t CMD;
-	uint8_t Buffer[32];
-}Radio_CmdStruct;
+#define Radio_Tx
+
+#define BUFFER_SIZE                                 9 // Define the payload size here
+
+tRadioDriver *Radio = NULL;
+static uint16_t BufferSize = BUFFER_SIZE;			// RF buffer size
+static uint8_t Buffer[BUFFER_SIZE];					// RF buffer
+
+static uint16_t RecvPackNum = 0;
+static uint16_t TransmitPackNum = 0;
 
 void DIO0_Irq(void);
 
-void Motor_Control(uint8_t *CmdBuffer);
+double SX1276GetPacketRssi( void );
 
 void RadioApplicationInit(void)
 {
-	SX1276Init();
+    process_start(&RadioRx_process, NULL);
+    process_start(&RadioTx_process, NULL);
 
-	SX1276StartRx();
+    Radio = RadioDriverInit( );
 
 	Gpio_SetIrq(RADIO_DIO0, DIO0_Irq, 8);
 
-    Radio_RecvMsg = process_alloc_event();
-
-    process_start(&RadioRx_process, NULL);
-    process_start(&RadioTx_process, NULL);
+	Radio->Init( );
+	Radio->StartRx( );
 }
 
-void Node_Cmd(Radio_CmdStruct Msg)
+void DIO0_Irq(void)
 {
-	switch (Msg.CMD)
+	switch (Radio->TxRxRunnin())
 	{
-		case ControlNode:
-			Motor_Control(Msg.Buffer);
+		case RF_TX_DONE:
+			Radio->StartRx( );
 			break;
-
-		case SetGroupID:
-			SetNodeID(Msg.Buffer);
+		case RF_RX_DONE:
+			Radio->GetRxPacket( Buffer, ( uint16_t* )&BufferSize );
+			if ( BufferSize > 0 )
+			{
+#ifdef  Radio_Tx
+				if( strncmp( ( const char* )Buffer, ( const char* )"pong", 4 ) == 0 )
+				{
+					RecvPackNum = (((uint16_t)Buffer[4])<<8) | Buffer[5];
+					process_poll(&RadioTx_process);
+				}
+#else
+				if( strncmp( ( const char* )Buffer, ( const char* )"ping", 4 ) == 0 )
+				{
+					RecvPackNum = (((uint16_t)Buffer[4])<<8) | Buffer[5];
+					TransmitPackNum++;
+					process_poll(&RadioTx_process);
+				}
+#endif
+			}
+			break;
+		default:
 			break;
 	}
 }
 
 PROCESS_THREAD(RadioRx_process, ev, data)
 {
-	Radio_CmdStruct *msg = NULL;
+#ifdef  Radio_Tx
+	static struct etimer et;
 
-    PROCESS_BEGIN();
+	memset (Buffer, 0, BUFFER_SIZE);
+	memcpy (Buffer, "ping", 4);
+#endif
 
-    while(1)
-    {
-        PROCESS_WAIT_EVENT_UNTIL(ev == Radio_RecvMsg);
+	PROCESS_BEGIN();
 
-		msg = (Radio_CmdStruct *)Buffer;
+	while(1)
+	{
+#ifdef  Radio_Tx
+		etimer_set(&et, CLOCK_SECOND*3);
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
-		if (RadioData_Index == msg->len+1)
-		{
-			if (memcmp (msg->ID, NodeAddr, 5) == 0)
-			{
-				DEBUG_Log ("Buffer = %.2X %.2X %.2X %.2X %.2X %.2X %.2X %.2X\r\n",
-					Buffer[0], Buffer[1], Buffer[2], Buffer[3], Buffer[4], Buffer[5], Buffer[6], Buffer[7]);
-				Node_Cmd(*msg);
-			}
-		}
+		TransmitPackNum ++;
+		Buffer[4] = (uint8_t)(TransmitPackNum>>8);
+		Buffer[5] = (uint8_t)TransmitPackNum;
+
+		Radio->SetTxPacket( Buffer, 6 );
+		DEBUG_Log  ("TransmitPackNum\r\n");
+#else
+        PROCESS_YIELD();
+#endif
+
     }
 
     PROCESS_END();
@@ -108,32 +117,27 @@ PROCESS_THREAD(RadioTx_process, ev, data)
     {
         PROCESS_YIELD();
 
+#ifdef  Radio_Tx
+		DEBUG_Log  ("TransmitPackNum %.4X\r\n", TransmitPackNum);
+		DEBUG_Log  ("RecvPackNum %.4X\r\n", RecvPackNum);
+		DEBUG_Log  ("Rssi %.4f\r\n\r\n\r\n\r\n", SX1276GetPacketRssi());
+#else
+		DEBUG_Log  ("TransmitPackNum %.4X\r\n\r\n", TransmitPackNum);
+		DEBUG_Log  ("RecvPackNum %.4X\r\n\r\n", RecvPackNum);
+		DEBUG_Log  ("Rssi %.4f\r\n\r\n\r\n\r\n", SX1276GetPacketRssi());
+		memset (Buffer, 0, BUFFER_SIZE);
+		memcpy (Buffer, "pong", 4);
+		Buffer[4] = (uint8_t)(TransmitPackNum>>8);
+		Buffer[5] = (uint8_t)TransmitPackNum;
+		Radio->SetTxPacket( Buffer, 6 );
+
+		GpioPinRes(LED1);
+		etimer_set(&et, CLOCK_SECOND/4);
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+		GpioPinSet(LED1);
+#endif
     }
 
     PROCESS_END();
-}
-
-void DIO0_Irq(void)
-{
-    switch (SX1276TxRxRUNNING())
-    {
-        case RF_TX_DONE:
-            break;
-        case RF_RX_DONE:
-            if (SX1276RXDONE() == RF_RX_DONE)
-            {
-                SX1276GetRxPacket( Buffer, ( uint16_t* )&BufferSize );
-
-				memset(RadioData_Buf, 0, 255);
-				memcpy((char*)RadioData_Buf, (const char*)Buffer, BufferSize);
-                RadioData_Index = BufferSize;
-
-                process_post(&RadioRx_process, Radio_RecvMsg, NULL);
-			}
-            break;
-        default:
-            break;
-    }
-    SX1276StartRx();
 }
 

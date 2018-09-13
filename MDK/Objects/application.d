@@ -7,13 +7,13 @@
 .\objects\application.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
 .\objects\application.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
 .\objects\application.o: ..\Drivers\CMSIS\Include\core_cm3.h
-.\objects\application.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\application.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\application.o: ..\Drivers\CMSIS\Include\core_cmInstr.h
 .\objects\application.o: ..\Drivers\CMSIS\Include\cmsis_armcc.h
 .\objects\application.o: ..\Drivers\CMSIS\Include\core_cmFunc.h
 .\objects\application.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
 .\objects\application.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
-.\objects\application.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\application.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\application.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h
 .\objects\application.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h
 .\objects\application.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h

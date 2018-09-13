@@ -18,14 +18,14 @@
  *
  * Last modified by Miguel Luis on Jun 19 2013
  */
-
-#include "sx1276-Hal.h"
-
-#include "radio.h"
 #include "platform.h"
+#include "radio.h"
+
+#if defined( USE_SX1276_RADIO )
 
 #include "sx1276.h"
 
+#include "sx1276-Hal.h"
 #include "sx1276-Fsk.h"
 #include "sx1276-LoRa.h"
 
@@ -39,8 +39,6 @@ static bool LoRaOnState = false;
 
 void SX1276Init( void )
 {
-	uint8_t TempReg;
-	
     // Initialize FSK and LoRa registers structure
     SX1276 = ( tSX1276* )SX1276Regs;
     SX1276LR = ( tSX1276LR* )SX1276Regs;
@@ -49,40 +47,19 @@ void SX1276Init( void )
     
     SX1276Reset( );
 
-	// for test hard spi
-	 SX1276Read(0x06,&TempReg);
-	 while(TempReg != 0x6C)
-	 {
-		 printf("Hard SPI Err!\r\n");
-	     SX1276Read(0x06,&TempReg);
-		 HAL_Delay(100);
-	 }
-
     // REMARK: After radio reset the default modem is FSK
 
-#if ( LORA == 0 )           //LORA = 1
-
-    LoRaOn = false;
-    SX1276SetLoRaOn( LoRaOn );
-    // Initialize FSK modem
-    SX1276FskInit( );
-
-#else
-
-    LoRaOn = true;          //LORA = 1
+    LoRaOn = true;
     SX1276SetLoRaOn( LoRaOn );
     // Initialize LoRa modem
     SX1276LoRaInit( );
-    
-#endif
-
 }
 
 void SX1276Reset( void )
 {
-	uint32_t startTick;  
+	uint32_t startTick = 0;
 
-	SX1276SetReset( RADIO_RESET_ON );
+    SX1276SetReset( RADIO_RESET_ON );
     
     // Wait 1ms
     startTick = GET_TICK_COUNT( );
@@ -246,11 +223,11 @@ void SX1276StartRx( void )
 {
     if( LoRaOn == false )
     {
-        SX1276FskSetRFState( RF_STATE_RX_INIT );
+        SX1276FskStartRx();
     }
     else
     {
-        SX1276LoRaStartRx();    //LoRa ÖÐ¶Ï½ÓÊÕ×´Ì¬
+        SX1276LoRaStartRx();
     }
 }
 
@@ -314,12 +291,7 @@ uint32_t SX1276Process( void )
     }
 }
 
-uint32_t SX1276StartTx( void )
-{
-    return SX1276LoRaStartTx();
-}
-
-uint32_t SX1276CADRUNNING( void )
+uint32_t SX1276TxRxRunnin( void )
 {
     if( LoRaOn == false )
     {
@@ -327,38 +299,8 @@ uint32_t SX1276CADRUNNING( void )
     }
     else
     {
-        return SX1276LoRaCADRUNNING( );
+        return SX1276LoRaTxRxRunnin( );
     }
 }
 
-uint32_t SX1276TxRxRUNNING( void )
-{
-    if( LoRaOn == false )
-    {
-        return RF_BUSY;
-    }
-    else
-    {
-        return SX1276LoRaTxRxRUNNING( );
-    }
-}
-
-uint32_t SX1276TxRxFHSSChangedChannel( void )
-{
-	return SX1276LoRaTxRXFHSSChangedChannel();
-}
-
-uint32_t SX1276STANDBY( void )
-{
-	return SX1276LoRaSTANDBY();
-}
-
-uint32_t SX1276RXDONE( void )
-{
-	return SX1276LoRaRXDONE();
-}
-
-uint32_t SX1276StartCAD( void )
-{
-	return SX1276LoRaStartCAD();
-}
+#endif // USE_SX1276_RADIO

@@ -44,32 +44,32 @@
 #define GET_TICK_COUNT( )                           HAL_GetTick(  )
 #define TICK_RATE_MS( ms )                          ( ms )
 
-/*!
- * RF process function return codes
- */
-typedef enum
-{
-    RF_IDLE,
-    RF_BUSY,
-    RF_RX_DONE,
-    RF_RX_TIMEOUT,
-    RF_TX_DONE,
-    RF_TX_TIMEOUT,
-    RF_LEN_ERROR,
-    RF_CHANNEL_EMPTY,
-    RF_CHANNEL_ACTIVITY_DETECTED,
-}tRFProcessReturnCodes;
+///*!
+// * RF process function return codes
+// */
+//typedef enum
+//{
+//    RF_IDLE,
+//    RF_BUSY,
+//    RF_RX_DONE,
+//    RF_RX_TIMEOUT,
+//    RF_TX_DONE,
+//    RF_TX_TIMEOUT,
+//    RF_LEN_ERROR,
+//    RF_CHANNEL_EMPTY,
+//    RF_CHANNEL_ACTIVITY_DETECTED,
+//}tRFProcessReturnCodes;
 
-typedef enum
-{
-    Radio_IDLE,
-    Radio_TxStart,
-    Radio_RxStart,
-    Radio_DelayTx,
-    Radio_CADStart,
-	Radio_ACTIVITY,
-    Radio_EMPTY
-}RadioState;
+//typedef enum
+//{
+//    Radio_IDLE,
+//    Radio_TxStart,
+//    Radio_RxStart,
+//    Radio_DelayTx,
+//    Radio_CADStart,
+//	Radio_ACTIVITY,
+//    Radio_EMPTY
+//}RadioState;
 
 typedef enum
 {

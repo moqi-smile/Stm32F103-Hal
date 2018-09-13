@@ -21,8 +21,6 @@
 #ifndef __SX1276_FSK_H__
 #define __SX1276_FSK_H__
 
-#include "stdint.h"
-#include "stdbool.h"
 /*!
  * SX1276 FSK General parameters definition
  */

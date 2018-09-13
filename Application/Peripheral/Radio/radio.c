@@ -1,111 +1,66 @@
-//#include "main.h"
+/*
+ * THE FOLLOWING FIRMWARE IS PROVIDED: (1) "AS IS" WITH NO WARRANTY; AND 
+ * (2)TO ENABLE ACCESS TO CODING INFORMATION TO GUIDE AND FACILITATE CUSTOMER.
+ * CONSEQUENTLY, SEMTECH SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT OR
+ * CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE CONTENT
+ * OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING INFORMATION
+ * CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+ * 
+ * Copyright (C) SEMTECH S.A.
+ */
+/*! 
+ * \file       radio.c
+ * \brief      Generic radio driver ( radio abstraction )
+ *
+ * \version    2.0.0 
+ * \date       Nov 21 2012
+ * \author     Miguel Luis
+ *
+ * Last modified by Gregory Cristian on Apr 25 2013
+ */
+#include "platform.h"
 
-//#include "iwdg/iwdg.h"
-//#include "gpio/gpio.h"
-//#include "usart/usart.h"
+#include "radio.h"
 
-//#include "Contiki.h"
+#if defined( USE_SX1232_RADIO )
+    #include "sx1232.h"
+#elif defined( USE_SX1272_RADIO )
+    #include "sx1272.h"
+#elif defined( USE_SX1276_RADIO )
+    #include "sx1276.h"
+#else
+    #error "Missing define: USE_XXXXXX_RADIO (ie. USE_SX1272_RADIO)"
+#endif    
 
-//#include "radio.h"
-//#include "sx1276.h"
+tRadioDriver RadioDriver;
 
-//#include "string.h"
+tRadioDriver* RadioDriverInit( void )
+{
+#if defined( USE_SX1232_RADIO )
+    RadioDriver.Init = SX1232Init;
+    RadioDriver.Reset = SX1232Reset;
+    RadioDriver.StartRx = SX1232StartRx;
+    RadioDriver.GetRxPacket = SX1232GetRxPacket;
+    RadioDriver.SetTxPacket = SX1232SetTxPacket;
+    RadioDriver.Process = SX1232Process;
+#elif defined( USE_SX1272_RADIO )
+    RadioDriver.Init = SX1272Init;
+    RadioDriver.Reset = SX1272Reset;
+    RadioDriver.StartRx = SX1272StartRx;
+    RadioDriver.GetRxPacket = SX1272GetRxPacket;
+    RadioDriver.SetTxPacket = SX1272SetTxPacket;
+    RadioDriver.Process = SX1272Process;
+#elif defined( USE_SX1276_RADIO )
+    RadioDriver.Init = SX1276Init;
+    RadioDriver.Reset = SX1276Reset;
+    RadioDriver.StartRx = SX1276StartRx;
+    RadioDriver.GetRxPacket = SX1276GetRxPacket;
+    RadioDriver.SetTxPacket = SX1276SetTxPacket;
+    RadioDriver.Process = SX1276Process;
+    RadioDriver.TxRxRunnin = SX1276TxRxRunnin;
+#else
+    #error "Missing define: USE_XXXXXX_RADIO (ie. USE_SX1272_RADIO)"
+#endif    
 
-//#define BUFFER_SIZE     255
-//// Define the payload size here
-
-//static uint16_t BufferSize = BUFFER_SIZE;
-//// RF buffer size
-//static uint8_t  Buffer[BUFFER_SIZE];
-//// RF buffer
-
-//static uint16_t RadioData_Index = BUFFER_SIZE;
-//// RF buffer size
-//static uint8_t  RadioData_Buf[BUFFER_SIZE];
-
-//uint32_t NetADDR = 0;
-
-//void SX1276OnDio0Irq( void );
-//void SX1276OnDio1Irq( void );
-//void SX1276OnDio2Irq( void );
-//void SX1276OnDio3Irq( void );
-//void SX1276OnDio4Irq( void );
-//void SX1276OnDio5Irq( void );
-
-//extern uint8_t* user_DriverRadio(uint8_t *msg, uint8_t len);
-
-//void RadioTaskFunction(void const * argument);
-
-//uint32_t RadioDriverStatu = Radio_IDLE;
-
-//void RadioDriverInit( void )
-//{
-////    Eval_GpioSetIrq(User_RADIODIO0, SX1276OnDio0Irq);
-////    Eval_GpioSetIrq(User_RADIODIO1, SX1276OnDio1Irq);
-////    Eval_GpioSetIrq(User_RADIODIO2, SX1276OnDio2Irq);
-////    Eval_GpioSetIrq(User_RADIODIO3, SX1276OnDio3Irq);
-////    Eval_GpioSetIrq(User_RADIODIO4, SX1276OnDio4Irq);
-////    Eval_GpioSetIrq(User_RADIODIO5, SX1276OnDio5Irq);
-
-//    SX1276StartRx();
-//}
-
-//void RadioTaskFunction(void  const * argument)
-//{
-//	
-//}
-
-//void RadioDriverTxMsg( uint8_t *msg, uint8_t len)
-//{
-//	uint8_t buf[32];
-
-//	memset(buf, 0, 32);
-
-//	buf[0] = len;
-//	memcpy(&buf[1], msg, len);
-
-//	SX1276SetTxPacket( buf, len+1 );
-//    SX1276StartTx();
-//}
-
-//void RadioCADStartFunc(void *in)
-//{
-//    SX1276StartCAD();
-//}
-
-//void SX1276OnDio0Irq(void)
-//{
-//}
-
-//void SX1276OnDio1Irq(void)
-//{
-//    
-//}
-
-//void SX1276OnDio2Irq(void)
-//{
-//    SX1276TxRxFHSSChangedChannel();
-//}
-
-//void SX1276OnDio3Irq(void)
-//{
-//    switch (SX1276CADRUNNING())
-//    {
-//        case RF_CHANNEL_ACTIVITY_DETECTED:
-//            break;
-//        case RF_CHANNEL_EMPTY:
-//            break;
-//        default:
-//            break;
-//    }
-//}
-
-//void SX1276OnDio4Irq(void)
-//{
-//    
-//}
-
-//void SX1276OnDio5Irq(void)
-//{
-//    
-//}
+    return &RadioDriver;
+}

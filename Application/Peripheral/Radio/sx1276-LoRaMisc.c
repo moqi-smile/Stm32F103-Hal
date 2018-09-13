@@ -28,6 +28,8 @@
  */
 #include "platform.h"
 
+#if defined( USE_SX1276_RADIO )
+
 #include "sx1276-Hal.h"
 #include "sx1276.h"
 
@@ -395,13 +397,15 @@ bool SX1276LoRaGetLowDatarateOptimize( void )
 
 void SX1276LoRaSetNbTrigPeaks( uint8_t value )
 {
-    SX1276Read( 0x31, &SX1276LR->RegTestReserved31 );
-    SX1276LR->RegTestReserved31 = ( SX1276LR->RegTestReserved31 & 0xF8 ) | value;
-    SX1276Write( 0x31, SX1276LR->RegTestReserved31 );
+    SX1276Read( 0x31, &SX1276LR->RegDetectOptimize );
+    SX1276LR->RegDetectOptimize = ( SX1276LR->RegDetectOptimize & 0xF8 ) | value;
+    SX1276Write( 0x31, SX1276LR->RegDetectOptimize );
 }
 
 uint8_t SX1276LoRaGetNbTrigPeaks( void )
 {
-    SX1276Read( 0x31, &SX1276LR->RegTestReserved31 );
-    return ( SX1276LR->RegTestReserved31 & 0x07 );
+    SX1276Read( 0x31, &SX1276LR->RegDetectOptimize );
+    return ( SX1276LR->RegDetectOptimize & 0x07 );
 }
+
+#endif // USE_SX1276_RADIO

@@ -23,6 +23,8 @@
 
 #include "platform.h"
 
+#if defined( USE_SX1276_RADIO )
+
 #include "radio.h"
 
 #include "sx1276-Hal.h"
@@ -600,3 +602,5 @@ uint32_t SX1276FskProcess( void )
     }
     return result;
 }
+
+#endif // USE_SX1276_RADIO

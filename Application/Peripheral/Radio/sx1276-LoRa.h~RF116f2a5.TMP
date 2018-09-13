@@ -919,6 +919,4 @@ void SX1276LoRaSetRFState( uint8_t state );
  */
 uint32_t SX1276LoRaProcess( void );
 
-uint32_t SX1276LoRaTxRxRunnin( void );
-
 #endif //__SX1276_LORA_H__

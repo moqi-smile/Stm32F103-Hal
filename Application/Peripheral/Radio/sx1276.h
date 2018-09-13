@@ -21,8 +21,8 @@
 #ifndef __SX1276_H__
 #define __SX1276_H__
 
-#include <stdint.h>
-#include <stdbool.h>
+#include "stdint.h"
+#include "stdbool.h"
 
 /*!
  * \brief SX1276 registers array
@@ -157,17 +157,7 @@ void SX1276SetRFState( uint8_t state );
  */
 uint32_t SX1276Process( void );
 
-uint32_t SX1276CADRUNNING( void );
+uint32_t SX1276TxRxRunnin( void );
 
-uint32_t SX1276TxRxRUNNING( void );
-
-uint32_t SX1276TxRxFHSSChangedChannel( void );
-
-uint32_t SX1276STANDBY( void );
-
-uint32_t SX1276StartTx( void );
-
-uint32_t SX1276RXDONE( void );
-
-uint32_t SX1276StartCAD( void );
 #endif //__SX1276_H__
+

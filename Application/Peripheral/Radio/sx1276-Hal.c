@@ -44,11 +44,11 @@ void SX1276InitIo( void )
 	Gpio_Config(RADIO_Res, Gpio_ModeOutputPP, Gpio_SpeedLow, Gpio_NOPULL);
 
 	Gpio_Config(RADIO_DIO0, Gpio_ModeITRISING, Gpio_SpeedLow, Gpio_NOPULL);
-	Gpio_Config(RADIO_DIO1, Gpio_ModeITRISING, Gpio_SpeedLow, Gpio_NOPULL);
-	Gpio_Config(RADIO_DIO2, Gpio_ModeITRISING, Gpio_SpeedLow, Gpio_NOPULL);
-	Gpio_Config(RADIO_DIO3, Gpio_ModeITRISING, Gpio_SpeedLow, Gpio_NOPULL);
-	Gpio_Config(RADIO_DIO4, Gpio_ModeITRISING, Gpio_SpeedLow, Gpio_NOPULL);
-	Gpio_Config(RADIO_DIO5, Gpio_ModeITRISING, Gpio_SpeedLow, Gpio_NOPULL);
+	Gpio_Config(RADIO_DIO1, Gpio_ModeInput, Gpio_SpeedLow, Gpio_PULLUP);
+	Gpio_Config(RADIO_DIO2, Gpio_ModeInput, Gpio_SpeedLow, Gpio_PULLUP);
+	Gpio_Config(RADIO_DIO3, Gpio_ModeInput, Gpio_SpeedLow, Gpio_PULLUP);
+	Gpio_Config(RADIO_DIO4, Gpio_ModeInput, Gpio_SpeedLow, Gpio_PULLUP);
+	Gpio_Config(RADIO_DIO5, Gpio_ModeInput, Gpio_SpeedLow, Gpio_PULLUP);
 }
 
 void SX1276SetReset( uint8_t state )

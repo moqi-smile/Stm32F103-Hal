@@ -32,6 +32,7 @@
 ".\objects\memb.o"
 ".\objects\mmem.o"
 ".\objects\clock.o"
+".\objects\radio.o"
 ".\objects\sx1276.o"
 ".\objects\sx1276-fsk.o"
 ".\objects\sx1276-fskmisc.o"

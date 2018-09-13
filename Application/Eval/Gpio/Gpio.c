@@ -111,7 +111,8 @@ void Gpio_SetIrq(Gpio_t Gpiox, GpioIrqCallback Irq, uint32_t Priority)
 void Gpio_Init(void)
 {
 	Gpio_Config(LED1, Gpio_ModeOutputPP, Gpio_SpeedHigh, Gpio_NOPULL);
-	Gpio_Config(PA1, Gpio_ModeInput, Gpio_SpeedLow, Gpio_PULLUP);
+	Gpio_Config(LED2, Gpio_ModeOutputPP, Gpio_SpeedHigh, Gpio_PULLUP);
+	Gpio_Config(LED3, Gpio_ModeOutputPP, Gpio_SpeedHigh, Gpio_NOPULL);
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)

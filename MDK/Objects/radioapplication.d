@@ -7,13 +7,13 @@
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Include\core_cm3.h
-.\objects\radioapplication.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\radioapplication.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Include\core_cmInstr.h
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Include\cmsis_armcc.h
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Include\core_cmFunc.h
 .\objects\radioapplication.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
 .\objects\radioapplication.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
-.\objects\radioapplication.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\radioapplication.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\radioapplication.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h
 .\objects\radioapplication.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h
 .\objects\radioapplication.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h
@@ -83,7 +83,8 @@
 .\objects\radioapplication.o: ..\Middlewares\Contiki\core\sys/procinit.h
 .\objects\radioapplication.o: ..\Middlewares\Contiki\core\sys/loader.h
 .\objects\radioapplication.o: ..\Middlewares\Contiki\core\sys/energest.h
-.\objects\radioapplication.o: D:\software\keil\ARM\ARMCC\Bin\..\include\String.h
+.\objects\radioapplication.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\String.h
 .\objects\radioapplication.o: ..\Application\Peripheral\Radio\sx1276.h
-.\objects\radioapplication.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\radioapplication.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\radioapplication.o: ..\Application\Peripheral\Radio\sx1276-Hal.h
+.\objects\radioapplication.o: ..\Application\Peripheral\Radio\radio.h

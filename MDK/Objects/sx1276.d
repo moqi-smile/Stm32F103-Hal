@@ -1,6 +1,10 @@
 .\objects\sx1276.o: ..\Application\Peripheral\Radio\sx1276.c
+.\objects\sx1276.o: ..\Application\Peripheral\Radio\platform.h
+.\objects\sx1276.o: ..\Application\Peripheral\Radio\radio.h
+.\objects\sx1276.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sx1276.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\sx1276.o: ..\Application\Peripheral\Radio\sx1276.h
 .\objects\sx1276.o: ..\Application\Peripheral\Radio\sx1276-Hal.h
-.\objects\sx1276.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\sx1276.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
 .\objects\sx1276.o: ..\Inc\stm32f1xx_hal_conf.h
 .\objects\sx1276.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h
@@ -13,7 +17,7 @@
 .\objects\sx1276.o: ..\Drivers\CMSIS\Include\core_cmFunc.h
 .\objects\sx1276.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
 .\objects\sx1276.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
-.\objects\sx1276.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sx1276.o: D:\software\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\sx1276.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h
 .\objects\sx1276.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h
 .\objects\sx1276.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h
@@ -57,9 +61,5 @@
 .\objects\sx1276.o: ..\Inc\main.h
 .\objects\sx1276.o: ..\Application\Eval\Spi/Spi.h
 .\objects\sx1276.o: ..\Application\Eval\Gpio/Gpio.h
-.\objects\sx1276.o: ..\Application\Peripheral\Radio\radio.h
-.\objects\sx1276.o: ..\Application\Peripheral\Radio\platform.h
-.\objects\sx1276.o: ..\Application\Peripheral\Radio\sx1276.h
-.\objects\sx1276.o: D:\software\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\sx1276.o: ..\Application\Peripheral\Radio\sx1276-Fsk.h
 .\objects\sx1276.o: ..\Application\Peripheral\Radio\sx1276-LoRa.h

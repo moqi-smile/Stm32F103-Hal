@@ -65,14 +65,13 @@ PROCESS_THREAD(led_process, ev, data)
 		etimer_set(&et, CLOCK_SECOND/2);
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
-		GpioPinToggle(LED1);
-		if (Gpio_ReadInput(PA1) == GpioInputRes)
-		{
-			DEBUG_Log  ("GpioInputRes\r\n\r\n");
-		}else
-		{
-			DEBUG_Log  ("GpioInputSet\r\n\r\n");
-		}
+//		if (Gpio_ReadInput(PA1) == GpioInputRes)
+//		{
+//			DEBUG_Log  ("GpioInputRes\r\n\r\n");
+//		}else
+//		{
+//			DEBUG_Log  ("GpioInputSet\r\n\r\n");
+//		}
 	}
 
 	PROCESS_END();
