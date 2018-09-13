@@ -35,7 +35,7 @@ void RadioApplicationInit(void)
 
     Radio = RadioDriverInit( );
 
-	Gpio_SetIrq(RADIO_DIO0, DIO0_Irq, 8);
+	Gpio_SetIrq(RADIO_DIO0, DIO0_Irq, 9);
 
 	Radio->Init( );
 	Radio->StartRx( );

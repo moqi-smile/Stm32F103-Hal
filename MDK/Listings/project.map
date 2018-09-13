@@ -3393,41 +3393,41 @@ Memory Map of the image
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x000000ec   Data   RO          201    RESET               startup_stm32f103xb.o
-    0x080000ec   0x00000000   Code   RO         6583  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080000ec   0x00000004   Code   RO         6904    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080000f0   0x00000004   Code   RO         6907    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080000f4   0x00000000   Code   RO         6909    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080000f4   0x00000000   Code   RO         6911    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080000f4   0x00000008   Code   RO         6912    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080000fc   0x00000000   Code   RO         6914    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080000fc   0x00000000   Code   RO         6916    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080000fc   0x00000004   Code   RO         6905    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080000ec   0x00000000   Code   RO         6840  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080000ec   0x00000004   Code   RO         7161    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080000f0   0x00000004   Code   RO         7164    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080000f4   0x00000000   Code   RO         7166    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080000f4   0x00000000   Code   RO         7168    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080000f4   0x00000008   Code   RO         7169    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080000fc   0x00000000   Code   RO         7171    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080000fc   0x00000000   Code   RO         7173    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080000fc   0x00000004   Code   RO         7162    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x08000100   0x00000024   Code   RO          202    .text               startup_stm32f103xb.o
-    0x08000124   0x00000020   Code   RO         6586    .text               mc_w.l(llushr.o)
-    0x08000144   0x00000040   Code   RO         6590    .text               mc_w.l(memmovea.o)
-    0x08000184   0x00000024   Code   RO         6592    .text               mc_w.l(memseta.o)
-    0x080001a8   0x0000001e   Code   RO         6594    .text               mc_w.l(strncmp.o)
-    0x080001c6   0x0000014e   Code   RO         6861    .text               mf_w.l(dadd.o)
-    0x08000314   0x000000e4   Code   RO         6863    .text               mf_w.l(dmul.o)
-    0x080003f8   0x000000de   Code   RO         6865    .text               mf_w.l(ddiv.o)
-    0x080004d6   0x00000022   Code   RO         6867    .text               mf_w.l(dflti.o)
-    0x080004f8   0x0000001a   Code   RO         6869    .text               mf_w.l(dfltui.o)
-    0x08000512   0x0000003e   Code   RO         6871    .text               mf_w.l(dfixi.o)
-    0x08000550   0x00000032   Code   RO         6873    .text               mf_w.l(dfixui.o)
+    0x08000124   0x00000020   Code   RO         6843    .text               mc_w.l(llushr.o)
+    0x08000144   0x00000040   Code   RO         6847    .text               mc_w.l(memmovea.o)
+    0x08000184   0x00000024   Code   RO         6849    .text               mc_w.l(memseta.o)
+    0x080001a8   0x0000001e   Code   RO         6851    .text               mc_w.l(strncmp.o)
+    0x080001c6   0x0000014e   Code   RO         7118    .text               mf_w.l(dadd.o)
+    0x08000314   0x000000e4   Code   RO         7120    .text               mf_w.l(dmul.o)
+    0x080003f8   0x000000de   Code   RO         7122    .text               mf_w.l(ddiv.o)
+    0x080004d6   0x00000022   Code   RO         7124    .text               mf_w.l(dflti.o)
+    0x080004f8   0x0000001a   Code   RO         7126    .text               mf_w.l(dfltui.o)
+    0x08000512   0x0000003e   Code   RO         7128    .text               mf_w.l(dfixi.o)
+    0x08000550   0x00000032   Code   RO         7130    .text               mf_w.l(dfixui.o)
     0x08000582   0x00000002   PAD
-    0x08000584   0x00000030   Code   RO         6875    .text               mf_w.l(cdcmple.o)
-    0x080005b4   0x0000002c   Code   RO         6919    .text               mc_w.l(uidiv.o)
-    0x080005e0   0x00000062   Code   RO         6921    .text               mc_w.l(uldiv.o)
-    0x08000642   0x0000001e   Code   RO         6923    .text               mc_w.l(llshl.o)
-    0x08000660   0x00000024   Code   RO         6925    .text               mc_w.l(llsshr.o)
-    0x08000684   0x00000000   Code   RO         6934    .text               mc_w.l(iusefp.o)
-    0x08000684   0x000000ba   Code   RO         6935    .text               mf_w.l(depilogue.o)
+    0x08000584   0x00000030   Code   RO         7132    .text               mf_w.l(cdcmple.o)
+    0x080005b4   0x0000002c   Code   RO         7176    .text               mc_w.l(uidiv.o)
+    0x080005e0   0x00000062   Code   RO         7178    .text               mc_w.l(uldiv.o)
+    0x08000642   0x0000001e   Code   RO         7180    .text               mc_w.l(llshl.o)
+    0x08000660   0x00000024   Code   RO         7182    .text               mc_w.l(llsshr.o)
+    0x08000684   0x00000000   Code   RO         7191    .text               mc_w.l(iusefp.o)
+    0x08000684   0x000000ba   Code   RO         7192    .text               mf_w.l(depilogue.o)
     0x0800073e   0x00000002   PAD
-    0x08000740   0x00000088   Code   RO         6939    .text               mf_w.l(drnd.o)
-    0x080007c8   0x00000030   Code   RO         6941    .text               mf_w.l(dfixul.o)
-    0x080007f8   0x00000030   Code   RO         6943    .text               mf_w.l(cdrcmple.o)
-    0x08000828   0x00000024   Code   RO         6945    .text               mc_w.l(init.o)
-    0x0800084c   0x00000056   Code   RO         6957    .text               mc_w.l(__dczerorl2.o)
+    0x08000740   0x00000088   Code   RO         7196    .text               mf_w.l(drnd.o)
+    0x080007c8   0x00000030   Code   RO         7198    .text               mf_w.l(dfixul.o)
+    0x080007f8   0x00000030   Code   RO         7200    .text               mf_w.l(cdrcmple.o)
+    0x08000828   0x00000024   Code   RO         7202    .text               mc_w.l(init.o)
+    0x0800084c   0x00000056   Code   RO         7214    .text               mc_w.l(__dczerorl2.o)
     0x080008a2   0x00000002   PAD
     0x080008a4   0x000000b4   Code   RO         6308    i.Application_Main  application.o
     0x08000958   0x00000004   Code   RO         3757    i.BusFault_Handler  stm32f1xx_it.o
@@ -3532,7 +3532,7 @@ Memory Map of the image
     0x0800301a   0x00000014   Code   RO         5740    i.MX_NVIC_USARTx_Init  usart.o
     0x0800302e   0x00000004   Code   RO         3760    i.MemManage_Handler  stm32f1xx_it.o
     0x08003032   0x00000002   PAD
-    0x08003034   0x0000001c   Code   RO         6534    i.MotorApplicationInit  motorapplication.o
+    0x08003034   0x0000001c   Code   RO         6791    i.MotorApplicationInit  motorapplication.o
     0x08003050   0x00000002   Code   RO         3761    i.NMI_Handler       stm32f1xx_it.o
     0x08003052   0x00000002   PAD
     0x08003054   0x00000010   Code   RO          369    i.NVIC_GetPriorityGrouping  stm32f1xx_hal_cortex.o
@@ -3645,15 +3645,15 @@ Memory Map of the image
     0x0800540c   0x00000024   Code   RO         6411    i.UartApplicationInit  uartapplication.o
     0x08005430   0x00000058   Code   RO         5745    i.Uart_Init         usart.o
     0x08005488   0x00000004   Code   RO         3765    i.UsageFault_Handler  stm32f1xx_it.o
-    0x0800548c   0x00000020   Code   RO         6833    i.__0printf         mc_w.l(printfa.o)
-    0x080054ac   0x0000000e   Code   RO         6951    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x080054ba   0x00000002   Code   RO         6952    i.__scatterload_null  mc_w.l(handlers.o)
-    0x080054bc   0x0000000e   Code   RO         6953    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800548c   0x00000020   Code   RO         7090    i.__0printf         mc_w.l(printfa.o)
+    0x080054ac   0x0000000e   Code   RO         7208    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x080054ba   0x00000002   Code   RO         7209    i.__scatterload_null  mc_w.l(handlers.o)
+    0x080054bc   0x0000000e   Code   RO         7210    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x080054ca   0x00000002   PAD
-    0x080054cc   0x00000184   Code   RO         6840    i._fp_digits        mc_w.l(printfa.o)
-    0x08005650   0x000006dc   Code   RO         6841    i._printf_core      mc_w.l(printfa.o)
-    0x08005d2c   0x00000024   Code   RO         6842    i._printf_post_padding  mc_w.l(printfa.o)
-    0x08005d50   0x0000002e   Code   RO         6843    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x080054cc   0x00000184   Code   RO         7097    i._fp_digits        mc_w.l(printfa.o)
+    0x08005650   0x000006dc   Code   RO         7098    i._printf_core      mc_w.l(printfa.o)
+    0x08005d2c   0x00000024   Code   RO         7099    i._printf_post_padding  mc_w.l(printfa.o)
+    0x08005d50   0x0000002e   Code   RO         7100    i._printf_pre_padding  mc_w.l(printfa.o)
     0x08005d7e   0x00000002   PAD
     0x08005d80   0x00000048   Code   RO         4051    i.add_timer         etimer.o
     0x08005dc8   0x00000050   Code   RO         3829    i.call_process      process.o
@@ -3689,14 +3689,14 @@ Memory Map of the image
     0x080062e0   0x00000024   Code   RO         3840    i.process_post_synch  process.o
     0x08006304   0x00000024   Code   RO         3841    i.process_run       process.o
     0x08006328   0x00000040   Code   RO         3842    i.process_start     process.o
-    0x08006368   0x000000e4   Code   RO         6536    i.process_thread_Motor_process  motorapplication.o
+    0x08006368   0x000000e4   Code   RO         6793    i.process_thread_Motor_process  motorapplication.o
     0x0800644c   0x000000b4   Code   RO         6451    i.process_thread_RTC_process  rtcapplication.o
     0x08006500   0x000000b4   Code   RO         6491    i.process_thread_RadioRx_process  radioapplication.o
     0x080065b4   0x000000b4   Code   RO         6492    i.process_thread_RadioTx_process  radioapplication.o
     0x08006668   0x000000b8   Code   RO         3950    i.process_thread_ctimer_process  ctimer.o
     0x08006720   0x000000e4   Code   RO         4064    i.process_thread_etimer_process  etimer.o
     0x08006804   0x00000050   Code   RO         6309    i.process_thread_led_process  application.o
-    0x08006854   0x00000094   Code   RO         6581    i.round             m_ws.l(round.o)
+    0x08006854   0x00000094   Code   RO         6838    i.round             m_ws.l(round.o)
     0x080068e8   0x0000001c   Code   RO         4151    i.timer_expired     timer.o
     0x08006904   0x0000000c   Code   RO         4154    i.timer_restart     timer.o
     0x08006910   0x00000010   Code   RO         4155    i.timer_set         timer.o
@@ -3711,9 +3711,9 @@ Memory Map of the image
     0x08006ae4   0x00000004   Data   RO         6311    .conststring        application.o
     0x08006ae8   0x00000004   Data   RO         6453    .conststring        rtcapplication.o
     0x08006aec   0x00000010   Data   RO         6494    .conststring        radioapplication.o
-    0x08006afc   0x00000006   Data   RO         6538    .conststring        motorapplication.o
+    0x08006afc   0x00000006   Data   RO         6795    .conststring        motorapplication.o
     0x08006b02   0x00000002   PAD
-    0x08006b04   0x00000020   Data   RO         6949    Region$$Table       anon$$obj.o
+    0x08006b04   0x00000020   Data   RO         7206    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000f58, Max: 0x00005000, ABSOLUTE, COMPRESSED[0x0000007c])
@@ -3741,8 +3741,8 @@ Memory Map of the image
     0x20000130   0x00000010   Data   RW         6454    .data               rtcapplication.o
     0x20000140   0x0000002a   Data   RW         6495    .data               radioapplication.o
     0x2000016a   0x00000002   PAD
-    0x2000016c   0x00000014   Data   RW         6539    .data               motorapplication.o
-    0x20000180   0x00000004   Data   RW         6918    .data               mc_w.l(stdout.o)
+    0x2000016c   0x00000014   Data   RW         6796    .data               motorapplication.o
+    0x20000180   0x00000004   Data   RW         7175    .data               mc_w.l(stdout.o)
     0x20000184   0x00000040   Zero   RW         2541    .bss                stm32f1xx_hal_timebase_tim_template.o
     0x200001c4   0x00000180   Zero   RW         3843    .bss                process.o
     0x20000344   0x0000001c   Zero   RW         4386    .bss                radio.o
@@ -3760,7 +3760,7 @@ Memory Map of the image
     0x200009e8   0x00000120   Zero   RW         6412    .bss                uartapplication.o
     0x20000b08   0x00000010   Zero   RW         6452    .bss                rtcapplication.o
     0x20000b18   0x0000002c   Zero   RW         6493    .bss                radioapplication.o
-    0x20000b44   0x00000010   Zero   RW         6537    .bss                motorapplication.o
+    0x20000b44   0x00000010   Zero   RW         6794    .bss                motorapplication.o
     0x20000b54   0x00000004   PAD
     0x20000b58   0x00000400   Zero   RW          199    STACK               startup_stm32f103xb.o
 
@@ -3785,7 +3785,7 @@ Image component sizes
        256         82          6         20         16       2115   motorapplication.o
        802        102          0         12        384      12810   process.o
         68         34          0          0         28       1928   radio.o
-       552        168         16         42         44       3482   radioapplication.o
+       552        168         16         42         44      10142   radioapplication.o
       1070        132         24         18         30       8714   rtc.o
        220         28          4         16         16       2326   rtcapplication.o
        288         60          0          0        264       3053   spi.o
@@ -3820,7 +3820,7 @@ Image component sizes
        324         52          0          0        340       5545   usart.o
 
     ----------------------------------------------------------------------
-     22376       2002        672        384       3540    1818577   Object Totals
+     22376       2002        672        384       3540    1825237   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         34          0          3         16          6          0   (incl. Padding)
 
@@ -3886,8 +3886,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     26756       2124        672        388       3540    1807401   Grand Totals
-     26756       2124        672        124       3540    1807401   ELF Image Totals (compressed)
+     26756       2124        672        388       3540    1814061   Grand Totals
+     26756       2124        672        124       3540    1814061   ELF Image Totals (compressed)
      26756       2124        672        124          0          0   ROM Totals
 
 ==============================================================================
